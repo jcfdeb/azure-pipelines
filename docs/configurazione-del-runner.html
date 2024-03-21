@@ -1,0 +1,133 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html lang="en-US" data-preset="contrast" data-primary-color="#307FFF"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="UTF-8"><meta name="robots" content="noindex"><meta name="built-on" content="2024-03-21T15:41:08.258124152"><title>Configurazione Del Runner | Azure Pipelines</title><script type="application/json" id="virtual-toc-data">[{"id":"impostazioni-del-progetto","level":0,"title":"Impostazioni Del Progetto","anchor":"#impostazioni-del-progetto"},{"id":"sicurezza-per-le-variabili","level":0,"title":"Sicurezza Per Le Variabili","anchor":"#sicurezza-per-le-variabili"},{"id":"sezione-agent-pools","level":0,"title":"Sezione: Agent Pools","anchor":"#sezione-agent-pools"},{"id":"default-agent-pool","level":0,"title":"Default Agent Pool","anchor":"#default-agent-pool"},{"id":"aggiunta-di-un-nuovo-agent","level":0,"title":"Aggiunta Di Un Nuovo Agent","anchor":"#aggiunta-di-un-nuovo-agent"},{"id":"nuovo-agent-per-sistemi-linux","level":0,"title":"Nuovo Agent Per Sistemi Linux","anchor":"#nuovo-agent-per-sistemi-linux"},{"id":"creazione-di-un-personal-access-token-pat","level":0,"title":"Creazione Di Un Personal Access Token (PAT)","anchor":"#creazione-di-un-personal-access-token-pat"},{"id":"configurazione-agent-sistema-linux","level":0,"title":"Configurazione Agent Sistema Linux","anchor":"#configurazione-agent-sistema-linux"},{"id":"stato-del-runner","level":0,"title":"Stato Del Runner","anchor":"#stato-del-runner"}]</script><script type="application/json" id="topic-shortcuts"></script><link href="https://resources.jetbrains.com/writerside/apidoc/6.6.6-b224/app.css" rel="stylesheet"><link rel="manifest" href="site.webmanifest"><meta name="msapplication-TileColor" content="#000000"><link rel="apple-touch-icon" sizes="180x180" href="https://jetbrains.com/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="https://jetbrains.com/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="https://jetbrains.com/favicon-16x16.png"><meta name="msapplication-TileImage" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-144x144.png"><meta name="msapplication-square70x70logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-70x70.png"><meta name="msapplication-square150x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-150x150.png"><meta name="msapplication-wide310x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x150.png"><meta name="msapplication-square310x310logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x310.png"><meta name="image" content=""><!-- Open Graph --><meta property="og:title" content="Configurazione Del Runner | Azure Pipelines"><meta property="og:description" content=""><meta property="og:image" content=""><meta property="og:site_name" content="Azure Pipelines Help"><meta property="og:type" content="website"><meta property="og:locale" content="en_US"><meta property="og:url" content="writerside-documentation/configurazione-del-runner.html"><!-- End Open Graph --><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content=""><meta name="twitter:title" content="Configurazione Del Runner | Azure Pipelines"><meta name="twitter:description" content=""><meta name="twitter:creator" content=""><meta name="twitter:image:src" content=""><!-- End Twitter Card --><!-- Schema.org WebPage --><script type="application/ld+json">{
+    "@context": "http://schema.org",
+    "@type": "WebPage",
+    "@id": "writerside-documentation/configurazione-del-runner.html#webpage",
+    "url": "writerside-documentation/configurazione-del-runner.html",
+    "name": "Configurazione Del Runner | Azure Pipelines",
+    "description": "",
+    "image": "",
+    "inLanguage":"en-US"
+}</script><!-- End Schema.org --><!-- Schema.org WebSite --><script type="application/ld+json">{
+    "@type": "WebSite",
+    "@id": "writerside-documentation/#website",
+    "url": "writerside-documentation/",
+    "name": "Azure Pipelines Help"
+}</script><!-- End Schema.org --></head><body data-id="configurazione-del-runner" data-main-title="Configurazione Del Runner" data-article-props="{&quot;seeAlsoStyle&quot;:&quot;links&quot;}" data-template="article" data-breadcrumbs=""><div class="wrapper"><main class="panel _main"><header class="panel__header"><div class="container"><h3>Azure Pipelines  Help</h3><div class="panel-trigger"></div></div></header><section class="panel__content"><div class="container"><article class="article" data-shortcut-switcher="inactive"><h1 data-toc="configurazione-del-runner" id="configurazione-del-runner.md">Configurazione Del Runner</h1><p id="ytqbzz_3126">Passaggi da realizzare per la configurazione del <a href="http://localhost:63342/azure_pipelines/preview/configurazione-del-runner.html" id="ytqbzz_3127" data-external="true" rel="noopener noreferrer">Runner</a></p><section class="chapter"><h2 id="impostazioni-del-progetto" data-toc="impostazioni-del-progetto">Impostazioni Del Progetto</h2><p id="ytqbzz_3128">Per aprire la sezione della configurazione del proggetto dobbiamo dirigerci alla pagina principale del progetto per poi cliccare sul pulsante dell'ingranaggio che troviamo in basso a sinistra.</p><figure id="ytqbzz_3129"><img alt="13 azure devops project settings" src="images/13_azure_devops_project_settings.png" title="13 azure devops project settings" width="1200" height="633"></figure><ul class="list _bullet" id="ytqbzz_3130"><li class="list__item" id="ytqbzz_3131"><p><a href="https://learn.microsoft.com/it-it/azure/devops/organizations/settings/about-settings?view=azure-devops" id="ytqbzz_3132" data-external="true" rel="noopener noreferrer">Informazione Riguardo i Progetti</a></p></li></ul></section><section class="chapter"><h2 id="sicurezza-per-le-variabili" data-toc="sicurezza-per-le-variabili">Sicurezza Per Le Variabili</h2><p id="ytqbzz_3133">Una configurazione che ci pu&ograve; aiutare con il passaggio delle variabili tramite le chiamate HTTP POST &egrave; quella di <span class="control" id="ytqbzz_3134">'Limit variables that can set at queue time'</span>. LA possiamo configurare a '<span class="control" id="ytqbzz_3135">On</span>'.</p><figure id="ytqbzz_3136"><img alt="13 1 azure devops project settings variables" src="images/13.1_azure_devops_project_settings_variables.png" title="13 1 azure devops project settings variables" width="1200" height="633"></figure></section><section class="chapter"><h2 id="sezione-agent-pools" data-toc="sezione-agent-pools">Sezione: Agent Pools</h2><p id="ytqbzz_3137">In questa sezione possiamo trovare tutti gli elementi in ralazione agli agent.</p><figure id="ytqbzz_3138"><img alt="14 azure devops agent pools" src="images/14_azure_devops_agent_pools.png" title="14 azure devops agent pools" width="1200" height="633"></figure><ul class="list _bullet" id="ytqbzz_3139"><li class="list__item" id="ytqbzz_3140"><p><a href="https://learn.microsoft.com/it-it/azure/devops/pipelines/agents/pools-queues?toc=%2Fazure%2Fdevops%2Forganizations%2Ftoc.json&amp;view=azure-devops&amp;tabs=yaml%2Cbrowser" id="ytqbzz_3141" data-external="true" rel="noopener noreferrer">Documentazione Agents</a></p></li></ul></section><section class="chapter"><h2 id="default-agent-pool" data-toc="default-agent-pool">Default Agent Pool</h2><p id="ytqbzz_3142">Adremmo ad aggiungere il nostro <span class="control" id="ytqbzz_3143">agent</span> nel <span class="control" id="ytqbzz_3144">Default</span> pool <span class="emphasis" id="ytqbzz_3145">(questo non toglie la possibilit&agrave; di creare un nuovo pool)</span>.</p><figure id="ytqbzz_3146"><img alt="15 azure devops agent pools default" src="images/15_azure_devops_agent_pools_default.png" title="15 azure devops agent pools default" width="1200" height="633"></figure></section><section class="chapter"><h2 id="aggiunta-di-un-nuovo-agent" data-toc="aggiunta-di-un-nuovo-agent">Aggiunta Di Un Nuovo Agent</h2><p id="ytqbzz_3147">Per aggiungere un nouvo agent dobbiamo spingere il pulsante <span class="control" id="ytqbzz_3148">'New Agent'</span></p><figure id="ytqbzz_3149"><img alt="16 azure devops new agent" src="images/16_azure_devops_new_agent.png" title="16 azure devops new agent" width="1200" height="633"></figure></section><section class="chapter"><h2 id="nuovo-agent-per-sistemi-linux" data-toc="nuovo-agent-per-sistemi-linux">Nuovo Agent Per Sistemi Linux</h2><p id="ytqbzz_3150">Per il nostro caso d'uso andremmo a scegliere le istruzioni per l'agent per sistemi Linux</p><figure id="ytqbzz_3151"><img alt="17 azure devops new linux agent" src="images/17_azure_devops_new_linux_agent.png" title="17 azure devops new linux agent" width="1200" height="633"></figure><ul class="list _bullet" id="ytqbzz_3152"><li class="list__item" id="ytqbzz_3153"><p><a href="https://learn.microsoft.com/it-it/azure/devops/pipelines/agents/linux-agent?view=azure-devops" id="ytqbzz_3154" data-external="true" rel="noopener noreferrer">Documentazione Agent Azure Pipelines per Linux</a></p></li></ul></section><section class="chapter"><h2 id="creazione-di-un-personal-access-token-pat" data-toc="creazione-di-un-personal-access-token-pat">Creazione Di Un Personal Access Token (PAT)</h2><aside class="prompt" data-type="tip" data-title="" id="ytqbzz_3155"><p id="ytqbzz_3156">Per autenticare l'agent in Azure DevOps bisogner&agrave; creare un Personal Access Token.</p></aside><p id="ytqbzz_3157">La procedura si pu&ograve; avviare cliccando sul pulsante con la '<span class="control" id="ytqbzz_3158">persona e l'ingrannaggio</span>' in alto a destra, e poi selezionando la voce '<span class="control" id="ytqbzz_3159">Personal access tokens</span>'.</p><figure id="ytqbzz_3160"><img alt="20 azure devops pat 1" src="images/20_azure_devops_pat_1.png" title="20 azure devops pat 1" width="1200" height="615"></figure><p id="ytqbzz_3161">Per creare un nuovo access token dobbiamo spingere il pulsate '<span class="control" id="ytqbzz_3162">New token</span>'.</p><figure id="ytqbzz_3163"><img alt="21 azure devops pat 2" src="images/21_azure_devops_pat_2.png" title="21 azure devops pat 2" width="1200" height="615"></figure><aside class="prompt" data-type="warning" data-title="" id="ytqbzz_3164"><p id="ytqbzz_3165">Dobbiamo fare particolare attenzione all'impostazione della durata per rinovare l'access token. Altrimenti la momento della scadenza la nostra <span class="control" id="ytqbzz_3166">pipeline</span> smetter&agrave; di funzionare.</p></aside><figure id="ytqbzz_3167"><img alt="22 azure devops pat 3" src="images/22_azure_devops_pat_3.png" title="22 azure devops pat 3" width="1200" height="615"></figure><p id="ytqbzz_3168">Per concludere dobbiamo '<span class="emphasis" id="ytqbzz_3169">copiare</span>' il valore restituito <span class="emphasis" id="ytqbzz_3170">(come nella maggior parte dei servizi laddove si creano access token questa sar&agrave; l'unica opportunit&agrave; per reperirlo)</span>. Spingere il pulsate <span class="control" id="ytqbzz_3171">'Close'</span> per concludere.</p><figure id="ytqbzz_3172"><img alt="23 azure devops pat 4" src="images/23_azure_devops_pat_4.png" title="23 azure devops pat 4" width="1200" height="636"></figure><ul class="list _bullet" id="ytqbzz_3173"><li class="list__item" id="ytqbzz_3174"><p><a href="https://learn.microsoft.com/it-it/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate?view=azure-devops&amp;tabs=Windows" id="ytqbzz_3175" data-external="true" rel="noopener noreferrer">Documentazione Personal Access Token</a></p></li></ul></section><section class="chapter"><h2 id="configurazione-agent-sistema-linux" data-toc="configurazione-agent-sistema-linux">Configurazione Agent Sistema Linux</h2><p id="ytqbzz_3176">A continuazione verranno visualizzati i comandi <span class="emphasis" id="ytqbzz_3177">(e la sua uscita)</span> utilizzati per installare l'agent per Linux.</p><ul class="list _bullet" id="ytqbzz_3178"><li class="list__item" id="ytqbzz_3179"><p>File contenuti nell'archivio scaricato dal link fornito da Azure.</p></li></ul><div class="code-block" data-lang="bash">
+azureuser@ubuntu2204:~/myagent$ ls
+bin  config.sh  env.sh  externals  license.html  run-docker.sh  run.sh  vsts-agent-linux-x64-3.234.0.tar.gz
+</div><ul class="list _bullet" id="ytqbzz_3181"><li class="list__item" id="ytqbzz_3182"><p>Installazione tramite lo script <span class="control" id="ytqbzz_3183">'./config.sh'</span></p></li></ul><div class="code-block" data-lang="bash">
+azureuser@ubuntu2204:~/myagent$ ./config.sh
+
+  ___                      ______ _            _ _
+/ _ \                     | ___ (_)          | (_)
+/ /_\ \_____   _ _ __ ___  | |_/ /_ _ __   ___| |_ _ __   ___  ___
+|  _  |_  / | | | '__/ _ \ |  __/| | '_ \ / _ \ | | '_ \ / _ \/ __|
+| | | |/ /| |_| | | |  __/ | |   | | |_) |  __/ | | | | |  __/\__ \
+\_| |_/___|\__,_|_|  \___| \_|   |_| .__/ \___|_|_|_| |_|\___||___/
+| |
+agent v3.234.0             |_|          (commit 21ca259)
+
+
+&gt;&gt; End User License Agreements:
+
+Building sources from a TFVC repository requires accepting the Team Explorer Everywhere End User License Agreement. This step is not required for building sources from Git repositories.
+
+A copy of the Team Explorer Everywhere license agreement can be found at:
+/home/azureuser/myagent/license.html
+
+Enter (Y/N) Accept the Team Explorer Everywhere license agreement now? (press enter for N) &gt; Y
+
+&gt;&gt; Connect:
+
+Enter server URL &gt; https://dev.azure.com/jcfdeb
+Enter authentication type (press enter for PAT) &gt;
+Enter personal access token &gt; ****************************************************
+Connecting to server ...
+
+&gt;&gt; Register Agent:
+
+Enter agent pool (press enter for default) &gt;
+Enter agent name (press enter for ubuntu2204) &gt;
+Scanning for tool capabilities.
+Connecting to the server.
+Successfully added the agent
+Testing agent connection.
+Enter work folder (press enter for _work) &gt;
+2024-02-26 15:16:02Z: Settings Saved.
+
+
+# Trigger by curl
+#
+
+You
+How I can trigger the Azure DevOps Pipeline thruogh Curl?
+Copilot
+Certainly! To trigger an Azure DevOps Pipeline using cURL, follow these steps:
+
+First, make sure you have a Personal Access Token (PAT) for authentication. You can create one in your Azure DevOps organization.
+Construct your cURL command. You’ll need the following information:
+Organization: Your Azure DevOps organization name.
+Project: The project where your pipeline resides.
+Pipeline ID: The unique identifier for your pipeline.
+PAT Token: Encode your PAT in base64 and include it in the request header.
+Use the following cURL command to queue the build:
+YOUR_PAT_TOKEN_ENCODED_IN_BASE64=...
+AZURE_ORGANIZATION=...
+AZURE_PROJECT=...
+PIPELINE_ID=...
+FULL_GIT_SHA=...  # Optional: If you want to override the default sourceVersion
+
+curl --location \\
+--request POST 'https://dev.azure.com/$AZURE_ORGANIZATION/$AZURE_PROJECT/_apis/build/builds?api-version=7.1-preview.7' \\
+--header 'Authorization: Basic $YOUR_PAT_TOKEN_ENCODED_IN_BASE64' \\
+--header 'Content-Type: application/json' \\
+--data-raw '{
+&quot;definition&quot;: {
+&quot;id&quot;: &quot;$PIPELINE_ID&quot;
+},
+&quot;sourceVersion&quot;: &quot;$FULL_GIT_SHA&quot;,  # Optional: only if you want to override the default sourceVersion
+&quot;parameters&quot;: &quot;{\&quot;your.parameter\&quot;: \&quot;your value\&quot;}&quot;  # Yes, this is a stringified JSON inside a stringified JSON
+}'
+
+Replace the placeholders (YOUR_PAT_TOKEN_ENCODED_IN_BASE64, AZURE_ORGANIZATION, AZURE_PROJECT, PIPELINE_ID, and FULL_GIT_SHA) with your actual values.
+
+Remember to adjust the parameters according to your specific use case. Happy automating! 🚀
+</div><ul class="list _bullet" id="ytqbzz_3185"><li class="list__item" id="ytqbzz_3186"><p>Unit File per Systemd</p></li></ul><div class="code-block" data-lang="bash">
+azureuser@ubuntu2204:~$ cat /etc/systemd/system/azure-pipelines-agent.service
+[Unit]
+Description=Azure Pipelines Agent
+After=network.target
+
+[Service]
+User=azureuser
+WorkingDirectory=/home/azureuser/myagent
+ExecStart=/home/azureuser/myagent/run.sh
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
+</div><ul class="list _bullet" id="ytqbzz_3188"><li class="list__item" id="ytqbzz_3189"><p>Abilitazione ed avvio del servizio</p></li></ul><div class="code-block" data-lang="bash">
+azureuser@ubuntu2204:~$ sudo systemctl daemon-reload
+
+azureuser@ubuntu2204:~$ sudo systemctl enable --now  azure-pipelines-agent.service
+Created symlink /etc/systemd/system/multi-user.target.wants/azure-pipelines-agent.service → /etc/systemd/system/azure-pipelines-agent.service.
+</div><ul class="list _bullet" id="ytqbzz_3191"><li class="list__item" id="ytqbzz_3192"><p>Controllo dello stato del servizio appena avviato</p></li></ul><div class="code-block" data-lang="bash">
+azureuser@ubuntu2204:~$ sudo systemctl status  azure-pipelines-agent.service
+● azure-pipelines-agent.service - Azure Pipelines Agent
+Loaded: loaded (/etc/systemd/system/azure-pipelines-agent.service; enabled; vendor preset: enabled)
+Active: active (running) since Thu 2024-03-04 09:47:50 UTC; 23s ago
+Main PID: 1410 (run.sh)
+Tasks: 17 (limit: 4071)
+Memory: 56.1M
+CPU: 1.813s
+CGroup: /system.slice/azure-pipelines-agent.service
+├─1410 /bin/bash /home/azureuser/myagent/run.sh
+└─1414 /home/azureuser/myagent/bin/Agent.Listener run
+
+Mar 04 09:47:50 ubuntu2204 systemd[1]: Started Azure Pipelines Agent.
+Mar 04 09:47:52 ubuntu2204 run.sh[1414]: Scanning for tool capabilities.
+Mar 04 09:47:52 ubuntu2204 run.sh[1414]: Connecting to the server.
+Mar 04 09:47:55 ubuntu2204 run.sh[1414]: 2024-03-04 09:47:55Z: Listening for Jobs
+</div></section><section class="chapter"><h2 id="stato-del-runner" data-toc="stato-del-runner">Stato Del Runner</h2><p id="ytqbzz_3194">Quando il servizio non &egrave; in funzione o in caso di mancata connettivit&agrave; l'agent comparir&agrave; evidenziato con un punto <span class="emphasis" id="ytqbzz_3195">rosso</span></p><figure id="ytqbzz_3196"><img alt="18 azure devops agents list" src="images/18_azure_devops_agents_list.png" title="18 azure devops agents list" width="1200" height="633"></figure><p id="ytqbzz_3197">Invece quando l'agent sar&agrave; disponibile lo stato verr&agrave; evidenziato con un punto di colore <span class="emphasis" id="ytqbzz_3198">verde</span></p><figure id="ytqbzz_3199"><img alt="19 azure devops agent online" src="images/19_azure_devops_agent_online.png" title="19 azure devops agent online" width="1200" height="649"></figure></section><div class="last-modified">Last modified: 21 March 2024</div><div data-feedback-placeholder="true"></div><div class="navigation-links _bottom"><a href="azure-pipelines.html" class="navigation-links__prev">Configurazione di Azure Pipelines</a><a href="payload-json.html" class="navigation-links__next">Payload JSON Per l'Attivazione Della Pipeline</a></div></article><div id="disqus_thread"></div></div></section></main></div><script src="https://resources.jetbrains.com/writerside/apidoc/6.6.6-b224/app.js"></script></body></html>
